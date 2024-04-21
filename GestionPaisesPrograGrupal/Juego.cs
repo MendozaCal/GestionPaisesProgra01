@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace GestionPaisesPrograGrupal
 {
-    internal class Program
+    internal class Juego
     {
-        static void Main(string[] args)
+        public void Execute()
         {
-            Juego juego = new Juego();
-            juego.Execute();
+
         }
     }
 }
