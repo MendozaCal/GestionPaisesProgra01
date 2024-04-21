@@ -8,7 +8,6 @@ namespace GestionPaisesPrograGrupal
 {
     internal class Pais
     {
-        
         public int Poblacion { get; set; }
         public float Dinero { get; set; }
         public int Felicidad { get; set; }
@@ -23,25 +22,34 @@ namespace GestionPaisesPrograGrupal
             Poblacion = poblacionInicial;
             Dinero = dineroInicial;
             Felicidad = felicidadInicial;
-            TasaImpuestos = 0.2f; 
+            TasaImpuestos = 0.2f;
 
             Salud = new Salud("Salud", 150, 10);
             Educacion = new Educación("Educación", 100, 10);
             Seguridad = new Seguridad("Seguridad", 200, 10);
         }
+
         public void PasarTurno()
         {
-           
             Dinero -= Salud.GetPrice() + Educacion.GetPrice() + Seguridad.GetPrice();
 
-           
             Dinero += Poblacion * TasaImpuestos;
 
-            
-            Poblacion += Salud.GetVariationSalud();
+            // Ajustar la población
+            if (Salud.GetPrice() > 80)
+            {
+                Poblacion += (int)(Poblacion * 0.1);
+            }
+            else
+            {
+                Poblacion -= (int)(Poblacion * 0.1);
+            }
 
-            
-            Felicidad += Seguridad.GetVariationSeguridad();
+            // Ajustar la felicidad
+            if (Seguridad.GetPrice() < 20)
+            {
+                Felicidad -= 10;
+            }
 
             if (Felicidad < 20)
             {
@@ -54,6 +62,30 @@ namespace GestionPaisesPrograGrupal
             Console.WriteLine($"Población: {Poblacion}");
             Console.WriteLine($"Dinero: {Dinero}");
             Console.WriteLine($"Felicidad: {Felicidad}");
+        }
+
+        public void AjustarImpuesto(float nuevaTasa)
+        {
+            TasaImpuestos = nuevaTasa;
+        }
+
+        public void AjustarGastoEnServicio(string servicio, float nuevoPrecio)
+        {
+            switch (servicio.ToLower())
+            {
+                case "educacion":
+                    Educacion.SetPrice(nuevoPrecio);
+                    break;
+                case "salud":
+                    Salud.SetPrice(nuevoPrecio);
+                    break;
+                case "seguridad":
+                    Seguridad.SetPrice(nuevoPrecio);
+                    break;
+                default:
+                    Console.WriteLine("Servicio no válido.");
+                    break;
+            }
         }
     }
 }
