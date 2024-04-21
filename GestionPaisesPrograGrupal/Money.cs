@@ -9,7 +9,7 @@ namespace GestionPaisesPrograGrupal
     internal class Money : StateBase
     {
         public int Moneyy { get; set; }
-        public int VariantMoney { get; set; }
+        public int VariantMoneyy { get; set; }
 
         public virtual int GetMoney()
         {
@@ -17,7 +17,7 @@ namespace GestionPaisesPrograGrupal
         }
         public virtual int GetVariationMoney()
         {
-            return VariantMoney;
+            return VariantMoneyy;
         }
     }
 }
