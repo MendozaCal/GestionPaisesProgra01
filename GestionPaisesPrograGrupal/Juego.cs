@@ -24,7 +24,8 @@ namespace GestionPaisesPrograGrupal
                 Console.WriteLine("Opciones:");
                 Console.WriteLine("1. Pasar turno");
                 Console.WriteLine("2. Ver estadísticas");
-                Console.WriteLine("3. Salir");
+                Console.WriteLine("3. Modificar gastos");
+                Console.WriteLine("4. Salir");
 
                 int opcion = int.Parse(Console.ReadLine());
 
@@ -36,13 +37,17 @@ namespace GestionPaisesPrograGrupal
                     case 2:
                         pais.VerEstadisticas();
                         break;
-                    case 3:
+                        case 3:
+                            ModificarGastosOImpuestos(); 
+                        break;
+                    case 4:
                         Console.WriteLine("Saliendo del juego...");
                         continuar = false;
                         break;
                     default:
                         Console.WriteLine("Opción no válida.");
                         break;
+                        
                 }
 
                 if (pais.Felicidad < 20)
