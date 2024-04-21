@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionPaisesPrograGrupal
 {
-    internal class Felicidad
+    internal class Felicidad : StateBase
     {
         public int FelicidadN { get; set; }
         public int VariantFelicidad { get; set; }

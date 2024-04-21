@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionPaisesPrograGrupal
 {
-    internal class People
+    internal class People : StateBase
     {
         public int Population { get; set; }
         public virtual int GetPeople()
