@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Juego.cs" />
+    <Compile Include="Money.cs" />
+    <Compile Include="People.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
